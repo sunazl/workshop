@@ -1,0 +1,24 @@
+APPLICATION_ID: workshop
+service_description:
+  name: beekeeper
+  version: 0.0.1
+  environment: development
+  properties:
+      allowCrossApp: true
+servicecomb:
+  highway:
+    address: 0.0.0.0:7071
+  rest:
+    address: 0.0.0.0:9091
+  service:
+    registry:
+      address: http://127.0.0.1:30100
+      autodiscovery: false
+  handler:
+    chain:
+      Consumer:
+        default: bizkeeper-consumer,loadbalance
+  references:
+#  this one below must refer to the microservice name it communicates with
+    worker:
+      version-rule: 0.0.1

@@ -1,0 +1,57 @@
+zuul:
+  routes:
+    doorman:
+      serviceId: doorman
+      sensitiveHeaders:
+    worker:
+      serviceId: worker
+    beekeeper:
+      serviceId: beekeeper
+
+# disable netflix eurkea since it's not used for service discovery
+ribbon:
+  ReadTimeout: 31000
+  ConnectTimeout: 31000
+  eureka:
+    enabled: false
+
+spring:
+  cloud:
+    cse:
+      host: 127.0.0.1
+      port: 30100
+
+server:
+  port: 8895
+
+#---
+#
+#spring:
+#  profiles: sit
+#
+---
+spring:
+  profiles: dev
+
+logging:
+  level:
+    root: INFO
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 31000 #断路器超时时间，默认1000ms
+#zuul:
+#  routes:
+#    doorman:
+#      url: http://localhost:8890
+#      sensitiveHeaders:
+#    worker:
+#      url: http://localhost:8888
+#    beekeeper:
+#      url: http://localhost:8889

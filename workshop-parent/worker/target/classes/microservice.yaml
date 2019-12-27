@@ -1,0 +1,19 @@
+APPLICATION_ID: workshop
+service_description:
+  name: worker
+  version: 0.0.1
+  environment: development
+  properties:
+      allowCrossApp: true
+servicecomb:
+  handler:
+      chain:
+        Provider: {}
+  highway:
+    address: 0.0.0.0:7070
+  rest:
+    address: 0.0.0.0:9090
+  service:
+    registry:
+      address: http://127.0.0.1:30100
+      autodiscovery: false

@@ -1,0 +1,24 @@
+﻿# all interconnected microservices must belong to an application wth the same ID
+APPLICATION_ID: workshop
+service_description:
+# name of the declaring microservice
+  name: manager
+  version: 0.0.1
+  environment: development
+cse:
+  service:
+    registry:
+      address: http://127.0.0.1:30100
+  isolation:
+    doorman:
+      timeoutInMilliseconds: 30000
+    beekeeper:
+      timeoutInMilliseconds: 30000
+    worker:
+      timeoutInMilliseconds: 30000
+
+servicecomb:
+  tracing:
+    collector:
+      address: http://127.0.0.1:9411
+
