@@ -12,7 +12,7 @@ servicecomb:
     address: 0.0.0.0:9091
   service:
     registry:
-      address: http://127.0.0.1:30100
+      address: http://sunazl.cn:30100
       autodiscovery: false
   handler:
     chain:

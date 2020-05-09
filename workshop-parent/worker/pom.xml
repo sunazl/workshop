@@ -48,10 +48,16 @@
 			<groupId>org.apache.servicecomb</groupId>
 			<artifactId>provider-pojo</artifactId>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>com.cosin</groupId>
 			<artifactId>servicecomb-interface</artifactId>
 			<version>1.0-SNAPSHOT</version>
+		</dependency>-->
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.5</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
